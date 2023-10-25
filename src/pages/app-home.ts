@@ -2,8 +2,8 @@ import { LitElement, css, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
-import '@shoelace-style/shoelace/dist/components/card/card.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/card/card.js';
 
 import { styles } from '../styles/shared-styles';
 
@@ -41,7 +41,6 @@ export class AppHome extends LitElement {
       }
     }
 
-
     @media (horizontal-viewport-segments: 2) {
       #welcomeBar {
         flex-direction: row;
@@ -64,7 +63,7 @@ export class AppHome extends LitElement {
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'PWABuilder pwa-starter',
+        title: 'PWABuilder pwa-starter ??',
         text: 'Check out the PWABuilder pwa-starter!',
         url: 'https://github.com/pwa-builder/pwa-starter',
       });
@@ -83,27 +82,22 @@ export class AppHome extends LitElement {
             </div>
 
             <p>
-              For more information on the PWABuilder pwa-starter, check out the
-              <a href="https://docs.pwabuilder.com/#/starter/quick-start">
-                documentation</a>.
+              Using the PWABuilder pwa-starter I will make my first PWA.
             </p>
 
-            <p id="mainInfo">
-              Welcome to the
-              <a href="https://pwabuilder.com">PWABuilder</a>
-              pwa-starter! Be sure to head back to
-              <a href="https://pwabuilder.com">PWABuilder</a>
-              when you are ready to ship this PWA to the Microsoft Store, Google Play
-              and the Apple App Store!
+            <p>
+              The purpose of it is to help people make difficult decisions,
+              by listing the pros and cons and assigningen importance to each entry. The Pros & Cons tool, will then calcualte the weight
+              of the pros aginst the cons, and help decide which choice to make.
             </p>
 
             ${'share' in navigator
-              ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter!</sl-button>`
+              ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter??</sl-button>`
               : null}
           </sl-card>
 
           <sl-card id="infoCard">
-            <h2>Technology Used</h2>
+            <h2>Technology Used - Delete later??</h2>
 
             <ul>
               <li>
