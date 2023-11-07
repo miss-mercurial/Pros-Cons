@@ -6,7 +6,7 @@ import '@shoelace-style/shoelace/dist/components/option/option';
 
 import { styles as sharedStyles } from '../../styles/shared-styles'
 import { styles } from './importance-styles';
-import { classMap } from 'lit/directives/class-map.js';
+//import { classMap } from 'lit/directives/class-map.js';
 
 @customElement('importance-selector')
 export class ImportanceSelector extends LitElement {
@@ -20,16 +20,22 @@ export class ImportanceSelector extends LitElement {
 
     render() {
         return html`
-            <div class="custom-selector ${ classMap('scheme-pro': this.isPro) } ${ classMap('scheme-con': !this.isPro) }">
-                <sl-select placeholder="Importance">
-                <sl-option value="option-1">Low</sl-option>
-                <sl-option value="option-2">Medium</sl-option>
-                <sl-option value="option-3">High</sl-option>
-                <sl-option value="option-3">
-                    <div class="custom-selector scheme-con">Meget High</div>
-                </sl-option>
-                </sl-select>
-            </div>
+            <sl-select clearable placeholder="Importance">
+                <div class="custom-selector scheme-pro">
+                    <small>Pro</small>
+                    <sl-option value="option-1-pro">Low</sl-option>
+                    <sl-option value="option-2-pro">Medium</sl-option>
+                    <sl-option value="option-3-pro">High</sl-option>
+                </div>
+
+                <div class="custom-selector scheme-con">
+                    <sl-divider></sl-divider>
+                    <small>Con</small>
+                    <sl-option value="option-1-con">Low</sl-option>
+                    <sl-option value="option-2-con">Medium</sl-option>
+                    <sl-option value="option-3-con">High</sl-option>
+                </div>
+            </sl-select>
         `;
     }
 }
