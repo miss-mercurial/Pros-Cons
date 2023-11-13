@@ -23,17 +23,17 @@ export class ImportanceSelector extends LitElement {
             <sl-select clearable placeholder="Importance">
                 <div class="custom-selector scheme-pro">
                     <small>Pro</small>
-                    <sl-option value="option-1-pro">Low</sl-option>
-                    <sl-option value="option-2-pro">Medium</sl-option>
-                    <sl-option value="option-3-pro">High</sl-option>
+                    <sl-option value="option-1-pro">Pro Low</sl-option>
+                    <sl-option value="option-2-pro">Pro Medium</sl-option>
+                    <sl-option value="option-3-pro">Pro High</sl-option>
                 </div>
 
                 <div class="custom-selector scheme-con">
                     <sl-divider></sl-divider>
                     <small>Con</small>
-                    <sl-option value="option-1-con">Low</sl-option>
-                    <sl-option value="option-2-con">Medium</sl-option>
-                    <sl-option value="option-3-con">High</sl-option>
+                    <sl-option value="option-1-con">Con Low</sl-option>
+                    <sl-option value="option-2-con">Con Medium</sl-option>
+                    <sl-option value="option-3-con">Con High</sl-option>
                 </div>
             </sl-select>
         `;
