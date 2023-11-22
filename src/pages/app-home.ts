@@ -2,8 +2,12 @@ import { LitElement, css, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/card/card.js';
+import '@shoelace-style/shoelace/dist/components/button/button';
+import '@shoelace-style/shoelace/dist/components/card/card';
+import '@shoelace-style/shoelace/dist/components/select/select';
+import '@shoelace-style/shoelace/dist/components/option/option';
+import '@shoelace-style/shoelace/dist/components/divider/divider';
+import '@shoelace-style/shoelace/dist/components/icon/icon';
 
 import { styles } from '../styles/shared-styles';
 
@@ -90,6 +94,29 @@ export class AppHome extends LitElement {
               by listing the pros and cons and assigningen importance to each entry. The Pros & Cons tool, will then calcualte the weight
               of the pros aginst the cons, and help decide which choice to make.
             </p>
+
+            <sl-select>
+              <small>Section 1</small>
+              <sl-option value="option-1">Option 1</sl-option>
+              <sl-option value="option-2">Option 2</sl-option>
+              <sl-option value="option-3">Option 3</sl-option>
+              <sl-divider></sl-divider>
+              <small>Section 2</small>
+              <sl-option value="option-4">Option 4</sl-option>
+              <sl-option value="option-5">Option 5</sl-option>
+              <sl-option value="option-6">Option 6</sl-option>
+            </sl-select>
+
+            <sl-icon name="house"></sl-icon>
+
+            <sl-select placeholder="Small" size="small" clearable>
+              <sl-icon name="house" slot="prefix"></sl-icon>
+              <sl-option value="option-1">Option 1</sl-option>
+              <sl-option value="option-2">Option 2</sl-option>
+              <sl-option value="option-3">Option 3</sl-option>
+            </sl-select>
+
+
 
             ${'share' in navigator
               ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter??</sl-button>`

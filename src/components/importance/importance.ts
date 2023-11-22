@@ -4,6 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import '@shoelace-style/shoelace/dist/components/select/select';
 import '@shoelace-style/shoelace/dist/components/option/option';
 import '@shoelace-style/shoelace/dist/components/input/input';
+import '@shoelace-style/shoelace/dist/components/divider/divider';
 
 import { styles as sharedStyles } from '../../styles/shared-styles'
 import { styles } from './importance-styles';
