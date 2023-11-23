@@ -20,7 +20,7 @@ export class AppSettings extends LitElement {
             <app-header ?enableBack="${true}"></app-header>
 
             <main>
-            <h2>Test page</h2>
+            <sl-input label="What is your dilemma?" autocomplete="off"></sl-input>
 
             <sl-card>
                 <h2>Woop woop</h2>
