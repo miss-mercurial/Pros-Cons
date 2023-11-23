@@ -13,12 +13,13 @@ export class AppHeader extends LitElement {
   static styles = css`
     header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       background: var(--app-color-primary);
       color: white;
       height: 4em;
       padding-left: 16px;
+      padding-right: 16px;
       padding-top: 12px;
 
       position: fixed;
@@ -32,6 +33,8 @@ export class AppHeader extends LitElement {
     header h1 {
       margin-top: 0;
       margin-bottom: 0;
+      margin-left: 16px;
+      margin-right: 16px;
       font-size: 30px;
       font-weight: bold;
     }
