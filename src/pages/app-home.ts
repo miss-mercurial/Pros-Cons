@@ -7,6 +7,7 @@ import '@shoelace-style/shoelace/dist/components/card/card';
 import '@shoelace-style/shoelace/dist/components/select/select';
 import '@shoelace-style/shoelace/dist/components/option/option';
 import '@shoelace-style/shoelace/dist/components/divider/divider';
+import '@shoelace-style/shoelace/dist/utilities/base-path';
 import '@shoelace-style/shoelace/dist/components/icon/icon';
 
 import { styles } from '../styles/shared-styles';
@@ -97,7 +98,7 @@ export class AppHome extends LitElement {
 
             <sl-select>
               <small>Section 1</small>
-              <sl-option value="option-1">Option 1</sl-option>
+              <sl-option value="option-1">👍 Option 1</sl-option>
               <sl-option value="option-2">Option 2</sl-option>
               <sl-option value="option-3">Option 3</sl-option>
               <sl-divider></sl-divider>
@@ -107,10 +108,7 @@ export class AppHome extends LitElement {
               <sl-option value="option-6">Option 6</sl-option>
             </sl-select>
 
-            <sl-icon name="house"></sl-icon>
-
             <sl-select placeholder="Small" size="small" clearable>
-              <sl-icon name="house" slot="prefix"></sl-icon>
               <sl-option value="option-1">Option 1</sl-option>
               <sl-option value="option-2">Option 2</sl-option>
               <sl-option value="option-3">Option 3</sl-option>

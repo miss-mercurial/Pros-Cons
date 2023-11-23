@@ -1,6 +1,15 @@
 import { css } from "lit";
 
 export const styles = css`
+    .selector-container {
+        display: flex;
+    }
+
+    /* Adjust the margin as needed for spacing between the dropdowns */
+    .custom-selector {
+        margin-right: 16px;
+    }
+
     /* Default styles for the selector */
     .custom-selector select {
         width: 150px;
