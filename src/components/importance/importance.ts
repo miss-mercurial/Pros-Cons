@@ -23,7 +23,8 @@ export class ImportanceSelector extends LitElement {
     render() {
         return html`
             <div class="selector-container">
-                <sl-select clearable placeholder="Importance">
+                <sl-select placeholder="Importance">
+                        <sl-option value="option-0">Importance</sl-option>
                     <div class="custom-selector scheme-pro">
                         <small>Pro</small>
                         <sl-option value="option-1-pro">🟢🟢🟢</sl-option>
@@ -39,7 +40,7 @@ export class ImportanceSelector extends LitElement {
                     </div>
                 </sl-select>
 
-                <sl-input placeholder="Some pro or con" clearable autocomplete="off"></sl-input>
+                <sl-input placeholder="Some pro or con" autocomplete="off"></sl-input>
             </div>
         `;
     }
