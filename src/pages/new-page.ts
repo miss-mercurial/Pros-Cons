@@ -12,6 +12,7 @@ import '@shoelace-style/shoelace/dist/components/option/option';
 import { styles as sharedStyles } from '../styles/shared-styles';
 import '../components/importance/importance'
 import '../components/background-card/background-card'
+import '../components/sensitivity'
 
 @customElement('new-page')
 export class AppSettings extends LitElement {
@@ -26,11 +27,7 @@ export class AppSettings extends LitElement {
                 <div class="center-container">
                     <background-card>
                         <sl-input label="The dilemma?" autocomplete="off" autofocus></sl-input>
-                        <sl-select label="How sure would you like to be?">
-                            <sl-option value="option-1">Option 1</sl-option>
-                            <sl-option value="option-2">Option 2</sl-option>
-                            <sl-option value="option-3">Option 3</sl-option>
-                        </sl-select>
+                        <sensitivity-selector></sensitivity-selector>
                         <p>Importance -------------- Matter</p>
                         <div class="custom-selector scheme-pro">
                             <importance-selector></importance-selector>
