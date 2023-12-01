@@ -3,6 +3,7 @@ import { customElement } from 'lit/decorators.js';
 
 import '@shoelace-style/shoelace/dist/components/select/select';
 import '@shoelace-style/shoelace/dist/components/option/option';
+import '@shoelace-style/shoelace/dist/components/input/input'
 
 import { styles as sharedStyles } from '../styles/shared-styles';
 
@@ -14,11 +15,8 @@ export class SensitivitySelector extends LitElement {
 
     render() {
         return html`
-            <sl-select label="How sure would you like to be?">
-                <sl-option value="option-1">Option 1</sl-option>
-                <sl-option value="option-2">Option 2</sl-option>
-                <sl-option value="option-3">Option 3</sl-option>
-            </sl-select>
+            <label>How sure would you like to be?</label>
+            <sl-input style="text-align: right;" type="number" id="quantity" name="quantity" min="0" max="100" step="1" value="60"></sl-input>
         `;
     }
 }
