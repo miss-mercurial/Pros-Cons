@@ -114,8 +114,6 @@ export class AppHome extends LitElement {
               <sl-option value="option-3">Option 3</sl-option>
             </sl-select>
 
-
-
             ${'share' in navigator
               ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter??</sl-button>`
               : null}
@@ -147,7 +145,7 @@ export class AppHome extends LitElement {
           <sl-button href="${resolveRouterPath('about')}" variant="primary">Navigate to About</sl-button>
           <sl-button href="${resolveRouterPath('new-page')}" variant="primary">Navigate to New Page</sl-button>
 
-          </div>
+        </div>
       </main>
     `;
   }
