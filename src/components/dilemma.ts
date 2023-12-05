@@ -13,14 +13,13 @@ export class DilemmaInput extends LitElement {
 
     render() {
         return html`
-            <sl-input style="border: 2px solid blue;" label="The dilemma?"></sl-input>
-        `;
-    }
-}
-/* <sl-input style="border: 2px solid blue;"
+            <sl-input
                 label="The dilemma?"
                 autocomplete="off"
                 autofocus
             >
                 <span slot="suffix">🤔</span>
-            </sl-input> */
+            </sl-input>
+        `;
+    }
+}
