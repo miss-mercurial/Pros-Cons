@@ -12,6 +12,7 @@ import { styles as sharedStyles } from '../styles/shared-styles';
 import '../components/importance/importance'
 import '../components/background-card/background-card'
 import '../components/sensitivity'
+import '../components/dilemma'
 
 @customElement('new-page')
 export class AppSettings extends LitElement {
@@ -25,14 +26,7 @@ export class AppSettings extends LitElement {
             <main>
                 <div class="center-container">
                     <background-card>
-                        <dilemma-input style="border: 1px solid red;"></dilemma-input>
-                        <sl-input
-                            label="The dilemma?"
-                            autocomplete="off"
-                            autofocus
-                        >
-                            <span slot="suffix">🤔</span>
-                        </sl-input>
+                        <dilemma-input></dilemma-input>
                         <sensitivity-input></sensitivity-input>
                         <p>Importance -------------- Matter</p>
                         <div class="custom-selector scheme-pro">
