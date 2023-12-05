@@ -7,8 +7,8 @@ import '@shoelace-style/shoelace/dist/components/input/input'
 import { styles as sharedStyles } from '../styles/shared-styles';
 import { SlInputEvent } from '@shoelace-style/shoelace';
 
-@customElement('sensitivity-selector')
-export class SensitivitySelector extends LitElement {
+@customElement('sensitivity-input')
+export class SensitivityInput extends LitElement {
     static styles = [
         sharedStyles
     ];
@@ -26,7 +26,7 @@ export class SensitivitySelector extends LitElement {
     /**
      * Validate and correct the input value
      *
-     * @param inputElement The InputElement the value of wich to do the validation on.
+     * @param inputElement InputElement, the value of wich to do the validation on.
      */
     private handleInputChange(inputElement: HTMLInputElement) {
         const value: number = inputElement.valueAsNumber;
