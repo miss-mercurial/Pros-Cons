@@ -8,7 +8,6 @@ import '@shoelace-style/shoelace/dist/components/divider/divider';
 
 import { styles as sharedStyles } from '../../styles/shared-styles';
 import { styles } from './importance-styles';
-//import { classMap } from 'lit/directives/class-map.js';
 
 @customElement('importance-selector')
 export class ImportanceSelector extends LitElement {
