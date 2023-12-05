@@ -3,7 +3,6 @@ import { customElement } from 'lit/decorators.js';
 
 import '@shoelace-style/shoelace/dist/components/input/input'
 
-
 import { styles as sharedStyles } from '../styles/shared-styles';
 import { SlInputEvent } from '@shoelace-style/shoelace';
 
