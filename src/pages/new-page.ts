@@ -31,8 +31,7 @@ export class AppSettings extends LitElement {
                         <importance-selector
                             labelImportance="Importance"
                             labelMatter="Matter"
-                        >
-                        </importance-selector>
+                        ></importance-selector>
                         <importance-selector></importance-selector>
                         <importance-selector></importance-selector>
                         <p>Conclusion</p>

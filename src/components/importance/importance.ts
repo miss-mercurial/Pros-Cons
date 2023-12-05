@@ -48,8 +48,7 @@ export class ImportanceSelector extends LitElement {
                     placeholder="Some pro or con"
                     autocomplete="off"
                     .label="${this.labelMatter}"
-                >
-                </sl-input>
+                ></sl-input>
             </div>
         `;
     }
