@@ -28,7 +28,11 @@ export class AppSettings extends LitElement {
                     <background-card>
                         <dilemma-input></dilemma-input>
                         <sensitivity-input></sensitivity-input>
-                        <p>Importance -------------- Matter</p>
+                        <importance-selector
+                            labelImportance="Importance"
+                            labelMatter="Matter"
+                        >
+                        </importance-selector>
                         <importance-selector></importance-selector>
                         <importance-selector></importance-selector>
                         <p>Conclusion</p>

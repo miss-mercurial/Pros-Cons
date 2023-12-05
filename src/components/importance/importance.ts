@@ -19,11 +19,17 @@ export class ImportanceSelector extends LitElement {
     @property({ type: Boolean })
     public isPro: boolean = false;
 
+    @property({ type: String })
+    public labelImportance: string = "";
+
+    @property({ type: String })
+    public labelMatter: string = "";
+
     render() {
         return html`
             <div class="selector-container">
-                <sl-select placeholder="Importance">
-                        <sl-option value="option-0">Importance</sl-option>
+                <sl-select placeholder="Importance" .label="${this.labelImportance}">
+                    <sl-option value="option-0">Importance</sl-option>
                     <div class="custom-selector scheme-pro">
                         <small>Pro</small>
                         <sl-option value="option-1-pro">🟢🟢🟢</sl-option>
@@ -38,8 +44,12 @@ export class ImportanceSelector extends LitElement {
                         <sl-option value="option-3-con">🔴🔴🔴</sl-option>
                     </div>
                 </sl-select>
-
-                <sl-input placeholder="Some pro or con" autocomplete="off"></sl-input>
+                <sl-input
+                    placeholder="Some pro or con"
+                    autocomplete="off"
+                    .label="${this.labelMatter}"
+                >
+                </sl-input>
             </div>
         `;
     }
