@@ -8,6 +8,7 @@ import '@shoelace-style/shoelace/dist/components/input/input';
 import '@shoelace-style/shoelace/dist/components/option/option';
 
 import { styles as sharedStyles } from '../styles/shared-styles';
+
 import '../components/importance/importance'
 import '../components/background-card/background-card'
 import '../components/sensitivity'
