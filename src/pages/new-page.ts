@@ -29,12 +29,8 @@ export class AppSettings extends LitElement {
                         <dilemma-input></dilemma-input>
                         <sensitivity-input></sensitivity-input>
                         <p>Importance -------------- Matter</p>
-                        <div class="custom-selector scheme-pro">
-                            <importance-selector></importance-selector>
-                        </div>
-                        <div class="custom-selector scheme-con">
-                            <importance-selector></importance-selector>
-                        </div>
+                        <importance-selector></importance-selector>
+                        <importance-selector></importance-selector>
                         <p>Conclusion</p>
                         <div style="text-align: center;">
                             <p>??% pros</p>
