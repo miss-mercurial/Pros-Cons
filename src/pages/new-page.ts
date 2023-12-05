@@ -27,7 +27,7 @@ export class AppSettings extends LitElement {
                 <div class="center-container">
                     <background-card>
                         <sl-input label="The dilemma?" autocomplete="off" autofocus></sl-input>
-                        <sensitivity-selector></sensitivity-selector>
+                        <sensitivity-input></sensitivity-input>
                         <p>Importance -------------- Matter</p>
                         <div class="custom-selector scheme-pro">
                             <importance-selector></importance-selector>
