@@ -45,7 +45,7 @@ export class SensitivityInput extends LitElement {
                 min="0"
                 max="100"
                 step="1"
-                value="50">
+                value="50"
             >
                 <span slot="suffix">%</span>
             </sl-input>
