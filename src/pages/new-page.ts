@@ -24,22 +24,24 @@ export class AppSettings extends LitElement {
 
     firstUpdated() {
         const input = this.shadowRoot?.querySelector('sl-input');
+        const outputEl = this.shadowRoot?.querySelector('#output') as HTMLElement;
 
-        if (input) {
+        if (input && outputEl) {
             input.addEventListener('sl-change', (event: SlInputEvent) => {
-                this.handleInputChange(event.target as HTMLInputElement);
+                this.handleInputChange(event.target as HTMLInputElement, outputEl);
             });
         }
     }
 
     /**
-     * Validate and correct the input value
+     * Get inputvalue and print
      *
-     * @param inputElement InputElement, the value of wich to do the validation on.
+     * @param inputElement InputElement, the value of wich to print.
      */
-    private handleInputChange(inputElement: HTMLInputElement) {
+    private handleInputChange(inputElement: HTMLInputElement, outputEl: HTMLElement) {
         const value = inputElement.value;
         console.log(value);
+        outputEl.textContent = value;
     }
 
     render() {
@@ -48,6 +50,7 @@ export class AppSettings extends LitElement {
             <main>
                 <div class="center-container">
                     <background-card>
+                        <!-- Dummy input and div-output to learn Lit -->
                         <sl-input autocomplete="off"></sl-input>
                         <div id="output"></div>
                         <dilemma-input></dilemma-input>
