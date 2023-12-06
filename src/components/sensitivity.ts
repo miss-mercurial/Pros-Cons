@@ -29,9 +29,12 @@ export class SensitivityInput extends LitElement {
      */
     private handleInputChange(inputElement: HTMLInputElement) {
         const value: number = inputElement.valueAsNumber;
+        console.log(value);
         if (value > 100)
             inputElement.value = "100";
         else if (value < 0)
+            inputElement.value = "0";
+        else if (isNaN(value))
             inputElement.value = "0";
     }
 
