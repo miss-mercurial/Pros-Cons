@@ -9,6 +9,8 @@ import '@shoelace-style/shoelace/dist/components/option/option';
 
 import { styles as sharedStyles } from '../styles/shared-styles';
 
+import { SlInputEvent } from '@shoelace-style/shoelace';
+
 import '../components/importance/importance'
 import '../components/background-card/background-card'
 import '../components/sensitivity'
@@ -20,12 +22,34 @@ export class AppSettings extends LitElement {
         sharedStyles
     ];
 
+    firstUpdated() {
+        const input = this.shadowRoot?.querySelector('sl-input');
+
+        if (input) {
+            input.addEventListener('sl-change', (event: SlInputEvent) => {
+                this.handleInputChange(event.target as HTMLInputElement);
+            });
+        }
+    }
+
+    /**
+     * Validate and correct the input value
+     *
+     * @param inputElement InputElement, the value of wich to do the validation on.
+     */
+    private handleInputChange(inputElement: HTMLInputElement) {
+        const value = inputElement.value;
+        console.log(value);
+    }
+
     render() {
         return html`
             <app-header ?enableBack="${true}"></app-header>
             <main>
                 <div class="center-container">
                     <background-card>
+                        <sl-input autocomplete="off"></sl-input>
+                        <div id="output"></div>
                         <dilemma-input></dilemma-input>
                         <sensitivity-input></sensitivity-input>
                         <importance-selector
