@@ -16,9 +16,6 @@ export class ImportanceSelector extends LitElement {
         styles
     ];
 
-    @property({ type: Boolean })
-    public isPro: boolean = false;
-
     @property({ type: String })
     public labelImportance: string = "";
 
