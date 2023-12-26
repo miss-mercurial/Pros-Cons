@@ -16,7 +16,6 @@ import '../components/importance/importance'
 import '../components/background-card/background-card'
 import '../components/sensitivity'
 import '../components/dilemma'
-import { ImportanceSelector } from '../components/importance/importance';
 
 @customElement('new-page')
 export class AppSettings extends LitElement {
@@ -79,17 +78,19 @@ export class AppSettings extends LitElement {
     private genImportanceSelector(i: number) {
         if (i == 0)
             return html`<importance-selector
-                @importance-change=${ this.handleImportanceChange }
+                @importance-change=${ (e: CustomEvent) => this.handleImportanceChange(e, i) }
                 labelImportance = "Importance"
                 labelMatter = "Matter"
             ></importance-selector>`
         else
             return html`<importance-selector
-                @importance-change=${ this.handleImportanceChange }
+                @importance-change=${ (e: CustomEvent) => this.handleImportanceChange(e, i) }
             ></importance-selector>`
     }
 
-    private handleImportanceChange(e: CustomEvent) {
-        console.log(e.detail.value)
+    private handleImportanceChange(e: CustomEvent, i: number) {
+        this.listProCon[i] = e.detail.value;
+        this.requestUpdate();
+        console.log(this.listProCon);
     }
 }
