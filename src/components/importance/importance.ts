@@ -22,23 +22,41 @@ export class ImportanceSelector extends LitElement {
     @property({ type: String })
     public labelMatter: string = "";
 
+    private handleSelectChange(event: Event) {
+        // Get value from event
+        const element: HTMLSelectElement = event.target as HTMLSelectElement;
+        const value: number = parseInt(element.value);
+
+        // Generate event options
+        const options = {
+            detail: {value},
+            bubbles: true,
+            composed: true
+        };
+
+        // Dispatch up the DOM
+        this.dispatchEvent(
+            new CustomEvent('importance-change', options)
+        );
+    }
+
     render() {
         return html`
             <div class="selector-container">
-                <sl-select placeholder="Importance" .label="${this.labelImportance}">
+                <sl-select @sl-change=${ this.handleSelectChange } placeholder="Importance" .label="${this.labelImportance}">
                     <sl-option value="option-0">Importance</sl-option>
                     <div class="custom-selector scheme-pro">
                         <small>Pro</small>
-                        <sl-option value="option-1-pro">🟢🟢🟢</sl-option>
-                        <sl-option value="option-2-pro">🟢🟢</sl-option>
-                        <sl-option value="option-3-pro">🟢</sl-option>
+                        <sl-option value=3>🟢🟢🟢</sl-option>
+                        <sl-option value=2>🟢🟢</sl-option>
+                        <sl-option value=1>🟢</sl-option>
                     </div>
                     <div class="custom-selector scheme-con">
                         <sl-divider></sl-divider>
                         <small>Con</small>
-                        <sl-option value="option-1-con">🔴</sl-option>
-                        <sl-option value="option-2-con">🔴🔴</sl-option>
-                        <sl-option value="option-3-con">🔴🔴🔴</sl-option>
+                        <sl-option value=-1>🔴</sl-option>
+                        <sl-option value=-2>🔴🔴</sl-option>
+                        <sl-option value=-3>🔴🔴🔴</sl-option>
                     </div>
                 </sl-select>
                 <sl-input
