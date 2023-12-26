@@ -45,6 +45,7 @@ export class AppSettings extends LitElement {
         outputEl.textContent = value;
     }
 
+    // State ensures that the whole page is rerendered each time listProCon is changed through the button
     @state()
     private listProCon: number[] = Array.from({ length: 7 }, () => 0)
 
@@ -72,13 +73,14 @@ export class AppSettings extends LitElement {
                                     ></importance-selector>`
                             })
                         }
+                        <!-- [...this.listProCon, 0] makes a new list consisting of the old list and a new number -->
+                        <sl-button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Add more pros/cons</sl-button>
                         <p>Conclusion</p>
                         <div style="text-align: center;">
                             <p>??% pros</p>
                             <p>??% cons</p>
                             <h4>Do it 👍|Think more about it 🤔|Don't do it 👎</h4>
                         </div>
-                        <button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Hej</button>
                     </background-card>
                 </div>
             </main>
@@ -89,9 +91,4 @@ export class AppSettings extends LitElement {
     {
         console.log(e.detail.value)
     }
-
-    setProConValue() {
-        this.listProCon =  [];
-    }
-
 }
