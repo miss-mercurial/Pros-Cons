@@ -16,6 +16,7 @@ import '../components/importance/importance'
 import '../components/background-card/background-card'
 import '../components/sensitivity'
 import '../components/dilemma'
+import { ImportanceSelector } from '../components/importance/importance';
 
 @customElement('new-page')
 export class AppSettings extends LitElement {
@@ -47,7 +48,7 @@ export class AppSettings extends LitElement {
 
     // State ensures that the whole page is rerendered each time listProCon is changed through the button
     @state()
-    private listProCon: number[] = Array.from({ length: 7 }, () => 0)
+    private listProCon: number[] = Array.from({ length: 5 }, () => 0)
 
     render() {
         return html`
@@ -60,19 +61,7 @@ export class AppSettings extends LitElement {
                         <div id="output"></div>
                         <dilemma-input></dilemma-input>
                         <sensitivity-input></sensitivity-input>
-                        ${map(this.listProCon, (_, i) => {
-                                if (i == 0)
-                                    return html`<importance-selector
-                                        @importance-change=${ this.handleImportanceChange }
-                                        labelImportance = "Importance"
-                                        labelMatter = "Matter"
-                                    ></importance-selector>`
-                                else
-                                    return html`<importance-selector
-                                        @importance-change=${ this.handleImportanceChange }
-                                    ></importance-selector>`
-                            })
-                        }
+                        ${map(this.listProCon, (_, i) => this.genImportanceSelector(i))}
                         <!-- [...this.listProCon, 0] makes a new list consisting of the old list and a new number -->
                         <sl-button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Add more pros/cons</sl-button>
                         <p>Conclusion</p>
@@ -87,8 +76,20 @@ export class AppSettings extends LitElement {
         `;
     }
 
-    private handleImportanceChange(e: CustomEvent)
-    {
+    private genImportanceSelector(i: number) {
+        if (i == 0)
+            return html`<importance-selector
+                @importance-change=${ this.handleImportanceChange }
+                labelImportance = "Importance"
+                labelMatter = "Matter"
+            ></importance-selector>`
+        else
+            return html`<importance-selector
+                @importance-change=${ this.handleImportanceChange }
+            ></importance-selector>`
+    }
+
+    private handleImportanceChange(e: CustomEvent) {
         console.log(e.detail.value)
     }
 }
