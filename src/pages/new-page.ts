@@ -62,11 +62,14 @@ export class AppSettings extends LitElement {
                         ${map(this.listProCon, (_, i) => {
                                 if (i == 0)
                                     return html`<importance-selector
+                                        @importance-change=${ this.handleImportanceChange }
                                         labelImportance = "Importance"
                                         labelMatter = "Matter"
                                     ></importance-selector>`
                                 else
-                                    return html`<importance-selector></importance-selector>`
+                                    return html`<importance-selector
+                                        @importance-change=${ this.handleImportanceChange }
+                                    ></importance-selector>`
                             })
                         }
                         <p>Conclusion</p>
@@ -75,10 +78,16 @@ export class AppSettings extends LitElement {
                             <p>??% cons</p>
                             <h4>Do it 👍|Think more about it 🤔|Don't do it 👎</h4>
                         </div>
+                        <button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Hej</button>
                     </background-card>
                 </div>
             </main>
         `;
+    }
+
+    private handleImportanceChange(e: CustomEvent)
+    {
+        console.log(e.detail.value)
     }
 
     setProConValue() {
