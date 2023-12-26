@@ -1,5 +1,6 @@
 import { LitElement, html} from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
+import { map } from 'lit/directives/map.js';
 
 import '@shoelace-style/shoelace/dist/components/card/card';
 import '@shoelace-style/shoelace/dist/components/menu/menu';
@@ -44,23 +45,30 @@ export class AppSettings extends LitElement {
         outputEl.textContent = value;
     }
 
+    @state()
+    private listProCon: number[] = Array.from({ length: 7 }, () => 0)
+
     render() {
         return html`
             <app-header ?enableBack="${true}"></app-header>
             <main>
                 <div class="center-container">
                     <background-card>
-                        <!-- Dummy input and div-output to learn Lit -->
+                        <!-- Dummy input and div-output to learn and test with Lit -->
                         <sl-input autocomplete="off"></sl-input>
                         <div id="output"></div>
                         <dilemma-input></dilemma-input>
                         <sensitivity-input></sensitivity-input>
-                        <importance-selector
-                            labelImportance="Importance"
-                            labelMatter="Matter"
-                        ></importance-selector>
-                        <importance-selector></importance-selector>
-                        <importance-selector></importance-selector>
+                        ${map(this.listProCon, (_, i) => {
+                                if (i == 0)
+                                    return html`<importance-selector
+                                        labelImportance = "Importance"
+                                        labelMatter = "Matter"
+                                    ></importance-selector>`
+                                else
+                                    return html`<importance-selector></importance-selector>`
+                            })
+                        }
                         <p>Conclusion</p>
                         <div style="text-align: center;">
                             <p>??% pros</p>
@@ -72,4 +80,9 @@ export class AppSettings extends LitElement {
             </main>
         `;
     }
+
+    setProConValue() {
+        this.listProCon =  [];
+    }
+
 }
