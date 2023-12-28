@@ -35,7 +35,7 @@ export const router = new Router({
         path: resolveRouterPath('new-page'),
         title: 'new page',
         plugins: [
-          lazy(() => import('./pages/new-page.js')),
+          lazy(() => import('./pages/new-page/new-page.js')),
         ],
         render: () => html`<new-page></new-page>`
       }
