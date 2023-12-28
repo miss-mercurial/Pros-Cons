@@ -8,14 +8,15 @@ import '@shoelace-style/shoelace/dist/components/menu-item/menu-item';
 import '@shoelace-style/shoelace/dist/components/input/input';
 import '@shoelace-style/shoelace/dist/components/option/option';
 
-import { styles as sharedStyles } from '../styles/shared-styles';
+import { styles as sharedStyles } from '../../styles/shared-styles';
 
 import { SlInputEvent } from '@shoelace-style/shoelace';
 
-import '../components/importance/importance'
-import '../components/background-card/background-card'
-import '../components/sensitivity'
-import '../components/dilemma'
+import '../../components/importance/importance'
+import '../../components/background-card/background-card'
+import '../../components/sensitivity'
+import '../../components/dilemma'
+import { NewPageState } from './model/new-page-state';
 
 @customElement('new-page')
 export class AppSettings extends LitElement {
@@ -49,6 +50,11 @@ export class AppSettings extends LitElement {
     @state()
     private listProCon: number[] = Array.from({ length: 5 }, () => 0)
 
+    @state()
+    private state: NewPageState | undefined = new NewPageState(
+        10, 90, "Just do it xD"
+    );
+
     render() {
         return html`
             <app-header ?enableBack="${true}"></app-header>
@@ -65,9 +71,10 @@ export class AppSettings extends LitElement {
                         <sl-button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Add more pros/cons</sl-button>
                         <p>Conclusion</p>
                         <div style="text-align: center;">
-                            <p>??% pros</p>
-                            <p>??% cons</p>
-                            <h4>Do it 👍|Think more about it 🤔|Don't do it 👎</h4>
+                            <p>${ this.state?.pro ?? "?" }% pros</p>
+                            <p>${ this.state?.con ?? "?" }% cons</p>
+                            <h4>${ this.state?.conclusion ?? "?" }</h4>
+                            <!-- Do it 👍|Think more about it 🤔|Don't do it 👎 -->
                         </div>
                     </background-card>
                 </div>
@@ -92,5 +99,21 @@ export class AppSettings extends LitElement {
         this.listProCon[i] = e.detail.value;
         this.requestUpdate();
         console.log(this.listProCon);
+    }
+
+    private calcRes() {
+        const proList: number[] = this.listProCon
+            .filter((val) => val > 0)
+
+        const conList: number[] = this.listProCon
+            .filter((val) => val < 0)
+
+        const proSum: number = proList
+            .reduce((acc, curr) => acc += curr, 0);
+
+        const conSum: number = conList
+            .reduce((acc, curr) => acc += curr, 0);
+
+        new NewPageState()
     }
 }
