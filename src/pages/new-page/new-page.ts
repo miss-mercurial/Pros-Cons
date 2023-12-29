@@ -24,11 +24,13 @@ export class AppSettings extends LitElement {
         sharedStyles
     ];
 
-    firstUpdated() {
+    firstUpdated()
+    {
         const input = this.shadowRoot?.querySelector('sl-input');
         const outputEl = this.shadowRoot?.querySelector('#output') as HTMLElement;
 
-        if (input && outputEl) {
+        if (input && outputEl)
+        {
             input.addEventListener('sl-change', (event: SlInputEvent) => {
                 this.handleInputChange(event.target as HTMLInputElement, outputEl);
             });
@@ -40,9 +42,9 @@ export class AppSettings extends LitElement {
      *
      * @param inputElement InputElement, the value of wich to print.
      */
-    private handleInputChange(inputElement: HTMLInputElement, outputEl: HTMLElement) {
+    private handleInputChange(inputElement: HTMLInputElement, outputEl: HTMLElement)
+    {
         const value = inputElement.value;
-        console.log(value);
         outputEl.textContent = value;
     }
 
@@ -55,7 +57,8 @@ export class AppSettings extends LitElement {
         10, 90, "Just do it xD"
     );
 
-    render() {
+    render()
+    {
         return html`
             <app-header ?enableBack="${true}"></app-header>
             <main>
@@ -82,7 +85,8 @@ export class AppSettings extends LitElement {
         `;
     }
 
-    private genImportanceSelector(i: number) {
+    private genImportanceSelector(i: number)
+    {
         if (i == 0)
             return html`<importance-selector
                 @importance-change=${ (e: CustomEvent) => this.handleImportanceChange(e, i) }
@@ -95,13 +99,15 @@ export class AppSettings extends LitElement {
             ></importance-selector>`
     }
 
-    private handleImportanceChange(e: CustomEvent, i: number) {
+    private handleImportanceChange(e: CustomEvent, i: number)
+    {
         this.listProCon[i] = e.detail.value;
-        this.requestUpdate();
         console.log(this.listProCon);
+        this.calcRes();
     }
 
-    private calcRes() {
+    private calcRes()
+    {
         const proList: number[] = this.listProCon
             .filter((val) => val > 0)
 
@@ -112,8 +118,14 @@ export class AppSettings extends LitElement {
             .reduce((acc, curr) => acc += curr, 0);
 
         const conSum: number = conList
-            .reduce((acc, curr) => acc += curr, 0);
+            .reduce((acc, curr) => acc -= curr, 0);
 
-        new NewPageState()
+        const sumProCon: number = proSum + conSum;
+        const pro = Math.round( proSum / sumProCon * 100 );
+        const con = Math.round( conSum / sumProCon * 100 );
+
+        this.state = new NewPageState(
+            pro, con, 'hi'
+        );
     }
 }
