@@ -134,18 +134,23 @@ export class AppSettings extends LitElement {
 
         const sumProCon: number = proSum + conSum;
 
-        const pro = Math.round( proSum / sumProCon * 100 );
-        const con = Math.round( conSum / sumProCon * 100 );
+        const pro: number = sumProCon > 0 ? Math.round( proSum / sumProCon * 100 ) : 0;
+        const con: number = sumProCon > 0 ? Math.round( conSum / sumProCon * 100 ) : 0;
 
-        console.log(`Pro: ${ pro }, Con: ${ con }, Sens: ${ this.sensitivity }
-        \n100 minus: ${ 100 - this.sensitivity }`);
-
-        if (pro >= this.sensitivity)
-            this.conclusion = "Do it 👍";
-        else if (pro <= (100 - this.sensitivity) )
-            this.conclusion = "Don't do it 👎";
+        if (pro == 0 && con == 0)
+        {
+            // If no importance values are provided
+            this.conclusion = "More information needed"
+        }
         else
-            this.conclusion = "Think more about it 🤔";
+        {
+            if (pro >= this.sensitivity)
+                this.conclusion = "Do it 👍";
+            else if (pro <= (100 - this.sensitivity) )
+                this.conclusion = "Don't do it 👎";
+            else
+                this.conclusion = "Think more about it 🤔";
+        }
 
         this.state = new NewPageState(
             pro, con, this.conclusion
