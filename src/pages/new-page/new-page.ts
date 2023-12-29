@@ -57,6 +57,9 @@ export class AppSettings extends LitElement {
         0, 0, "More information needed"
     );
 
+    private sensitivity: number = 50;
+    private conclusion: string = "";
+
     render()
     {
         return html`
@@ -68,7 +71,9 @@ export class AppSettings extends LitElement {
                         <sl-input autocomplete="off"></sl-input>
                         <div id="output"></div>
                         <dilemma-input></dilemma-input>
-                        <sensitivity-input></sensitivity-input>
+                        <sensitivity-input
+                            @sensitivity-change=${ this.handleSensitivityChange }
+                            initialVal = ${ this.sensitivity }></sensitivity-input>
                         ${map(this.listProCon, (_, i) => this.genImportanceSelector(i))}
                         <!-- [...this.listProCon, 0] makes a new list consisting of the old list and a new number -->
                         <sl-button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Add more pros/cons</sl-button>
@@ -102,17 +107,22 @@ export class AppSettings extends LitElement {
     private handleImportanceChange(e: CustomEvent, i: number)
     {
         this.listProCon[i] = e.detail.value;
-        console.log(this.listProCon);
+        this.calcRes();
+    }
+
+    private handleSensitivityChange(e: CustomEvent)
+    {
+        this.sensitivity = e.detail; // number
         this.calcRes();
     }
 
     private calcRes()
     {
-        //Filter the list for pros
+        // Filter the list for pros
         const proList: number[] = this.listProCon
             .filter((val) => val > 0)
 
-        //Filter the list for cons
+        // Filter the list for cons
         const conList: number[] = this.listProCon
             .filter((val) => val < 0)
 
@@ -127,8 +137,18 @@ export class AppSettings extends LitElement {
         const pro = Math.round( proSum / sumProCon * 100 );
         const con = Math.round( conSum / sumProCon * 100 );
 
+        console.log(`Pro: ${ pro }, Con: ${ con }, Sens: ${ this.sensitivity }
+        \n100 minus: ${ 100 - this.sensitivity }`);
+
+        if (pro >= this.sensitivity)
+            this.conclusion = "Do it 👍";
+        else if (pro <= (100 - this.sensitivity) )
+            this.conclusion = "Don't do it 👎";
+        else
+            this.conclusion = "Think more about it 🤔";
+
         this.state = new NewPageState(
-            pro, con, 'hi'
+            pro, con, this.conclusion
         );
     }
 }
