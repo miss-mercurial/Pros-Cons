@@ -22,7 +22,8 @@ export class ImportanceSelector extends LitElement {
     @property({ type: String })
     public labelMatter: string = "";
 
-    private handleSelectChange(event: Event) {
+    private handleSelectChange(event: Event)
+    {
         // Get value from event
         const element: HTMLSelectElement = event.target as HTMLSelectElement;
         const value: number = parseInt(element.value);
@@ -40,7 +41,8 @@ export class ImportanceSelector extends LitElement {
         );
     }
 
-    render() {
+    render()
+    {
         return html`
             <div class="selector-container">
                 <sl-select @sl-change=${ this.handleSelectChange } placeholder="Importance" .label="${this.labelImportance}">

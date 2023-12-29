@@ -12,7 +12,8 @@ export class SensitivityInput extends LitElement {
         sharedStyles
     ];
 
-    firstUpdated() {
+    firstUpdated()
+    {
         const input = this.shadowRoot?.querySelector('sl-input');
 
         if (input) {
@@ -27,7 +28,8 @@ export class SensitivityInput extends LitElement {
      *
      * @param inputElement InputElement, the value of wich to do the validation on.
      */
-    private handleInputChange(inputElement: HTMLInputElement) {
+    private handleInputChange(inputElement: HTMLInputElement)
+    {
         const value: number = inputElement.valueAsNumber;
         console.log(value);
         if (value > 100)
@@ -38,7 +40,8 @@ export class SensitivityInput extends LitElement {
             inputElement.value = "0";
     }
 
-    render() {
+    render()
+    {
         return html`
             <sl-input
                 label="How sure would you like to be?"

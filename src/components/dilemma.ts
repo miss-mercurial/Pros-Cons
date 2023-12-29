@@ -11,7 +11,8 @@ export class DilemmaInput extends LitElement {
         sharedStyles
     ];
 
-    render() {
+    render()
+    {
         return html`
             <sl-input
                 label="The dilemma?"
