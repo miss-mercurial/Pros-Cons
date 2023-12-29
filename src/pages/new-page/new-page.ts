@@ -54,7 +54,7 @@ export class AppSettings extends LitElement {
 
     @state()
     private state: NewPageState | undefined = new NewPageState(
-        10, 90, "Just do it xD"
+        0, 0, "More information needed"
     );
 
     render()
@@ -108,9 +108,11 @@ export class AppSettings extends LitElement {
 
     private calcRes()
     {
+        //Filter the list for pros
         const proList: number[] = this.listProCon
             .filter((val) => val > 0)
 
+        //Filter the list for cons
         const conList: number[] = this.listProCon
             .filter((val) => val < 0)
 
@@ -121,6 +123,7 @@ export class AppSettings extends LitElement {
             .reduce((acc, curr) => acc -= curr, 0);
 
         const sumProCon: number = proSum + conSum;
+
         const pro = Math.round( proSum / sumProCon * 100 );
         const con = Math.round( conSum / sumProCon * 100 );
 
