@@ -9,21 +9,21 @@ export const styles = css`
 
     /* Default styles for the selector */
     .custom-selector sl-option {
-        padding: 5px;
+        --sl-spacing-x-small: 0.0rem;
+        --sl-spacing-medium: 0.0rem;
+        padding: 0;
     }
 
     /* Hover state Pro styles */
     .custom-selector.scheme-pro sl-option::part(base):hover {
         background-color:  #11f1097c;
         color: #FFFFFF;
-        //border: 2px solid purple;
     }
 
     /* Focus state Pro styles */
     .custom-selector.scheme-pro sl-option:focus-within::part(base) {
         background-color: #11f1097c;
         color: #FFFFFF;
-        //border: 2px solid purple;
     }
 
     /* Hover state Con styles */
