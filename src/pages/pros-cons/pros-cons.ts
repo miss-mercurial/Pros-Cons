@@ -24,7 +24,7 @@ export class ProsCons extends LitElement {
 
     // State ensures that the whole page is rerendered each time listProCon is changed through the button
     @state()
-    private listProCon: number[] = Array.from({ length: 5 }, () => 0)
+    private listProCon: number[] = Array.from({ length: 3 }, () => 0)
 
     @state()
     private state: ProsConsState | undefined = new ProsConsState(
@@ -49,7 +49,7 @@ export class ProsCons extends LitElement {
                             initialVal = ${ this.sensitivity }></sensitivity-input>
                         ${map(this.listProCon, (_, i) => this.genImportanceSelector(i))}
                         <!-- [...this.listProCon, 0] makes a new list consisting of the old list and a new number -->
-                        <sl-button @click=${ () => this.listProCon = [...this.listProCon, 0] }>Add more pros/cons</sl-button>
+                        <sl-button style="margin-top: 10px" @click=${ () => this.listProCon = [...this.listProCon, 0] }>Add pros/cons</sl-button>
                         <p>Conclusion</p>
                         <div style="text-align: center;">
                             <p>${ this.state?.pro ?? "?" }% pros</p>
