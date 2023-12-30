@@ -14,7 +14,7 @@ export class AppHeader extends LitElement {
         header {
             width: 100%;
             background: var(--app-color-primary);
-            color: white;
+            color: black;
         }
 
         .header-content {
@@ -38,7 +38,7 @@ export class AppHeader extends LitElement {
             align-self: center;
         }
 
-        @media(prefers-color-scheme: light) {
+/*         @media(prefers-color-scheme: light) {
             header {
                 background-color: #f5f5f5;
                 color: black;
@@ -50,7 +50,7 @@ export class AppHeader extends LitElement {
                 background-color: #181818;
                 color: white;
             }
-        }
+        } */
   `;
 
   render() {
