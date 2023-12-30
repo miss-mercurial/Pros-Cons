@@ -36,7 +36,6 @@ export class SensitivityInput extends LitElement {
             bubbles: true,
             composed: true
         };
-        console.log(options);
 
         // Dispatch up the DOM
         this.dispatchEvent(
