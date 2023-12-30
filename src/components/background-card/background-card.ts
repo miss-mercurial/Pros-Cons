@@ -18,7 +18,7 @@ export class BackgroundCard extends LitElement {
         return html`
             <div class="center-container">
                 <sl-card class="card-basic">
-                    <!-- Your card content goes here -->
+                    <!-- Card content goes here -->
                     <slot></slot>
                 </sl-card>
             </div>
