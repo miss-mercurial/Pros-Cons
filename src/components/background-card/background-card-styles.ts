@@ -7,4 +7,8 @@ export const styles = css`
         padding-bottom: 40px;
         /*height: 100vh;  Adjust the height as needed */
     }
+
+    .card-basic {
+        min-width: fit-content;
+    }
 `;
