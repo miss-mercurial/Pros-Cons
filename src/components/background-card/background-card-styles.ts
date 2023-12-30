@@ -9,6 +9,7 @@ export const styles = css`
     }
 
     .card-basic {
+        --sl-panel-background-color: var(--sl-color-violet-300);
         min-width: fit-content;
     }
 `;
