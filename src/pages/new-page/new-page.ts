@@ -10,8 +10,6 @@ import '@shoelace-style/shoelace/dist/components/option/option';
 
 import { styles as sharedStyles } from '../../styles/shared-styles';
 
-import { SlInputEvent } from '@shoelace-style/shoelace';
-
 import '../../components/importance/importance'
 import '../../components/background-card/background-card'
 import '../../components/sensitivity'
@@ -23,30 +21,6 @@ export class AppSettings extends LitElement {
     static styles = [
         sharedStyles
     ];
-
-    firstUpdated()
-    {
-        const input = this.shadowRoot?.querySelector('sl-input');
-        const outputEl = this.shadowRoot?.querySelector('#output') as HTMLElement;
-
-        if (input && outputEl)
-        {
-            input.addEventListener('sl-change', (event: SlInputEvent) => {
-                this.handleInputChange(event.target as HTMLInputElement, outputEl);
-            });
-        }
-    }
-
-    /**
-     * Get inputvalue and print
-     *
-     * @param inputElement InputElement, the value of wich to print.
-     */
-    private handleInputChange(inputElement: HTMLInputElement, outputEl: HTMLElement)
-    {
-        const value = inputElement.value;
-        outputEl.textContent = value;
-    }
 
     // State ensures that the whole page is rerendered each time listProCon is changed through the button
     @state()
@@ -67,9 +41,6 @@ export class AppSettings extends LitElement {
             <main>
                 <div class="center-container">
                     <background-card>
-                        <!-- Dummy input and div-output to learn and test with Lit -->
-                        <sl-input autocomplete="off"></sl-input>
-                        <div id="output"></div>
                         <dilemma-input></dilemma-input>
                         <sensitivity-input
                             @sensitivity-change=${ this.handleSensitivityChange }
