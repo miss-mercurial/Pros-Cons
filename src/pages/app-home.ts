@@ -77,7 +77,10 @@ export class AppHome extends LitElement {
 
   render() {
     return html`
-      <app-header></app-header>
+      <div>
+        <app-header></app-header>
+      </div>
+
 
       <main>
         <div id="welcomeBar">
@@ -95,24 +98,6 @@ export class AppHome extends LitElement {
               by listing the pros and cons and assigningen importance to each entry. The Pros & Cons tool, will then calcualte the weight
               of the pros aginst the cons, and help decide which choice to make.
             </p>
-
-            <sl-select>
-              <small>Section 1</small>
-              <sl-option value="option-1">👍 Option 1</sl-option>
-              <sl-option value="option-2">Option 2</sl-option>
-              <sl-option value="option-3">Option 3</sl-option>
-              <sl-divider></sl-divider>
-              <small>Section 2</small>
-              <sl-option value="option-4">Option 4</sl-option>
-              <sl-option value="option-5">Option 5</sl-option>
-              <sl-option value="option-6">Option 6</sl-option>
-            </sl-select>
-
-            <sl-select placeholder="Small" size="small" clearable>
-              <sl-option value="option-1">Option 1</sl-option>
-              <sl-option value="option-2">Option 2</sl-option>
-              <sl-option value="option-3">Option 3</sl-option>
-            </sl-select>
 
             ${'share' in navigator
               ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter??</sl-button>`
