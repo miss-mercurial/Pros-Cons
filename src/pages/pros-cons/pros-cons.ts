@@ -57,7 +57,7 @@ export class ProsCons extends LitElement {
                             <h4>${ this.state?.conclusion ?? "?" }</h4>
                             <!-- Do it 👍|Think more about it 🤔|Don't do it 👎 -->
                         </div>
-                        <h6 style="text-align: center">v1.0.0rc3</h6>
+                        <h6 style="text-align: center">v1.0.0</h6>
                     </background-card>
                 </div>
             </main>
