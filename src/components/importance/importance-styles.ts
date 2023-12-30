@@ -1,25 +1,15 @@
 import { css } from "lit";
 
 export const styles = css`
+
     .selector-container {
         display: flex;
-    }
-
-    /* Adjust the margin as needed for spacing between the dropdowns */
-    .custom-selector {
-        margin-right: 16px;
+        width: 360px;
     }
 
     /* Default styles for the selector */
-    .custom-selector select {
-        width: 150px;
+    .custom-selector sl-option {
         padding: 5px;
-    }
-
-    /* Color Scheme Pro styles */
-    .custom-selector.scheme-pro sl-select sl-option{
-        color: #FFFFFF;
-        border: 2px solid #11f109d5;
     }
 
     /* Hover state Pro styles */
@@ -34,14 +24,6 @@ export const styles = css`
         background-color: #11f1097c;
         color: #FFFFFF;
         //border: 2px solid purple;
-    }
-
-
-    /* Color Scheme Con styles */
-    .custom-selector.scheme-con sl-select sl-option{
-        color: #FFFFFF;
-        border: 2px solid #f3082bd6;
-        //border: 2px solid purple
     }
 
     /* Hover state Con styles */

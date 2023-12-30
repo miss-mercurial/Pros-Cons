@@ -46,7 +46,7 @@ export class ImportanceSelector extends LitElement {
         return html`
             <div class="selector-container">
                 <sl-select @sl-change=${ this.handleSelectChange } placeholder="Select" .label="${this.labelImportance}">
-                    <sl-option value=0>Select</sl-option>
+                    <sl-option class="custom-selector scheme-pro" value=0>Select</sl-option>
                     <div class="custom-selector scheme-pro">
                         <small>Pro</small>
                         <sl-option value=3>🟢🟢🟢</sl-option>
