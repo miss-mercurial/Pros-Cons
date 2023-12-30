@@ -21,25 +21,11 @@ export const router = new Router({
       {
         path: resolveRouterPath(),
         title: 'Home',
-        render: () => html`<app-home></app-home>`
-      },
-      {
-        path: resolveRouterPath('about'),
-        title: 'About',
-        plugins: [
-          lazy(() => import('./pages/app-about/app-about.js')),
-        ],
-        render: () => html`<app-about></app-about>`
-      },
-      {
-        path: resolveRouterPath('pros-cons'),
-        title: 'Pros and Cons',
         plugins: [
           lazy(() => import('./pages/pros-cons/pros-cons.js')),
         ],
         render: () => html`<pros-cons></pros-cons>`
       }
-
     ]
   });
 
