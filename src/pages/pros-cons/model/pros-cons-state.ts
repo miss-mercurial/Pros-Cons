@@ -1,5 +1,5 @@
 /**
- * Model class for holding the new-page state.
+ * Model class for holding the pros-cons state.
  */
 export class ProsConsState
 {

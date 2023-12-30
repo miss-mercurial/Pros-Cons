@@ -17,7 +17,7 @@ import '../../components/dilemma'
 import { ProsConsState } from './model/pros-cons-state';
 
 @customElement('pros-cons')
-export class AppSettings extends LitElement {
+export class ProsCons extends LitElement {
     static styles = [
         sharedStyles
     ];
@@ -37,7 +37,9 @@ export class AppSettings extends LitElement {
     render()
     {
         return html`
-            <app-header ?enableBack="${true}"></app-header>
+            <div>
+                <app-header ?enableBack="${false}"></app-header>
+            </div>
             <main>
                 <div class="center-container">
                     <background-card>

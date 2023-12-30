@@ -6,74 +6,63 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 @customElement('app-header')
 export class AppHeader extends LitElement {
-  @property({ type: String }) title = 'Pros & Cons';
+    @property({ type: String }) title = 'Pros & Cons';
 
-  @property({ type: Boolean}) enableBack: boolean = false;
+    @property({ type: Boolean}) enableBack: boolean = false;
 
-  static styles = css`
-    header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--app-color-primary);
-      color: white;
-      height: 4em;
-      padding-left: 16px;
-      padding-right: 16px;
-      padding-top: 12px;
+    static styles = css`
+        header {
+            width: 100%;
+            background: var(--app-color-primary);
+            color: white;
+        }
 
-      position: fixed;
-      left: env(titlebar-area-x, 0);
-      top: env(titlebar-area-y, 0);
-      height: env(titlebar-area-height, 50px);
-      width: env(titlebar-area-width, 100%);
-      -webkit-app-region: drag;
-    }
+        .header-content {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
 
-    header h1 {
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-left: 16px;
-      margin-right: 16px;
-      font-size: 30px;
-      font-weight: bold;
-    }
+        .header-text {
+            text-align: center;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 30px;
+            font-weight: bold;
+        }
 
-    nav a {
-      margin-left: 10px;
-    }
+        .back-button {
+            position: absolute;
+            right: 0;
+            align-self: center;
+        }
 
-    #back-button-block {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 12em;
-    }
+        @media(prefers-color-scheme: light) {
+            header {
+                background-color: #f5f5f5;
+                color: black;
+            }
+        }
 
-    @media(prefers-color-scheme: light) {
-      header {
-        color: black;
-      }
-
-      nav a {
-        color: initial;
-      }
-    }
+        @media(prefers-color-scheme: dark) {
+            header {
+                background-color: #181818;
+                color: white;
+            }
+        }
   `;
 
   render() {
-    return html`
-      <header>
-        <div>
-          <h1>${this.title}</h1>
-        </div>
-
-        <div id="back-button-block">
-          ${this.enableBack ? html`<sl-button href="${resolveRouterPath()}">
-            Back
-          </sl-button>` : null}
-        </div>
-      </header>
-    `;
-  }
+        return html`
+            <header>
+                <div class="header-content">
+                    <h1 class="header-text">${this.title}</h1>
+                    ${this.enableBack ? html`<sl-button class="back-button" href="${resolveRouterPath()}">
+                        Back
+                    </sl-button>` : null}
+                </div>
+            </header>
+        `;
+      }
 }
