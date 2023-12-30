@@ -1,7 +1,7 @@
 /**
  * Model class for holding the new-page state.
  */
-export class NewPageState
+export class ProsConsState
 {
     constructor(
         readonly pro: number,

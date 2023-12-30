@@ -32,12 +32,12 @@ export const router = new Router({
         render: () => html`<app-about></app-about>`
       },
       {
-        path: resolveRouterPath('new-page'),
-        title: 'new page',
+        path: resolveRouterPath('pros-cons'),
+        title: 'Pros and Cons',
         plugins: [
-          lazy(() => import('./pages/new-page/new-page.js')),
+          lazy(() => import('./pages/pros-cons/pros-cons.js')),
         ],
-        render: () => html`<new-page></new-page>`
+        render: () => html`<pros-cons></pros-cons>`
       }
 
     ]

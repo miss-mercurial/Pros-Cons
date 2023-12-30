@@ -14,9 +14,9 @@ import '../../components/importance/importance'
 import '../../components/background-card/background-card'
 import '../../components/sensitivity'
 import '../../components/dilemma'
-import { NewPageState } from './model/new-page-state';
+import { ProsConsState } from './model/pros-cons-state';
 
-@customElement('new-page')
+@customElement('pros-cons')
 export class AppSettings extends LitElement {
     static styles = [
         sharedStyles
@@ -27,7 +27,7 @@ export class AppSettings extends LitElement {
     private listProCon: number[] = Array.from({ length: 5 }, () => 0)
 
     @state()
-    private state: NewPageState | undefined = new NewPageState(
+    private state: ProsConsState | undefined = new ProsConsState(
         0, 0, "More information needed"
     );
 
@@ -123,7 +123,7 @@ export class AppSettings extends LitElement {
                 this.conclusion = "Think more about it 🤔";
         }
 
-        this.state = new NewPageState(
+        this.state = new ProsConsState(
             pro, con, this.conclusion
         );
     }
