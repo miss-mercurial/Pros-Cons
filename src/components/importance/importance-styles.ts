@@ -30,13 +30,11 @@ export const styles = css`
     .custom-selector.scheme-con sl-option::part(base):hover {
         background-color: #f3082b8a;
         color: #FFFFFF;
-        //border: 2px solid purple;
     }
 
     /* Focus state Con styles */
     .custom-selector.scheme-con sl-option:focus-within::part(base) {
         background-color: #f3082b8a;
         color: #FFFFFF;
-        //border: 2px solid purple;
     }
 `;
