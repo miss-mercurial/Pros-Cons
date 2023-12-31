@@ -5,6 +5,15 @@ Pros & Cons is a PWA made to help make difficult decisions and solve dilemmas. I
 
 It is based on the PWA Starter from (https://docs.pwabuilder.com/#/starter/quick-start).
 
+## Prequal - How to run
+
+1. Make sure you have npm installed, and stand in the project root directory.
+
+2. Run `npm install`.
+
+3. Run `npm run dev` to start a development server.
+   - For building the project run `npm run build` and the output will be in the ***dist*** directory.
+
 ## Introduction
 
 Pros & Cons will help users make decisions when in doubt, by calculating the proportional weight of the pros and cons, and making a conclusion based on the sensitivity level for the decision.
